@@ -1,0 +1,43 @@
+初始化
+git init
+
+检查版本库的状态
+git status 
+
+将文件添加到库
+git add .
+
+用命令git commit -m"提交说明"告诉Git，把文件提交到仓库
+git commit -m "提交说明"
+
+查看提交的记录
+git log
+
+查看提交的记录带ID号
+git reflog
+
+退回iD对应的版本
+git reset --hard [版本ID]
+
+查看当前分支
+git branch
+
+创建分支   [分支明-可以自定义]branch命令不会将我们带入分支，只是创建一个新分支。
+git branch dev
+
+切换分支
+git checkout dev
+
+返回主分支      ——第一个分支，或主分支，被称为"master"。
+git checkout master
+
+将dev分支合并到当前分支。         一般的先切换到主分支[git checkout master]，再合并dev分支
+git merge dev
+
+删除分支        [name：需要删除的分支]
+git branch -D name
+
+查看分支提交的记录
+git log --graph
+
+

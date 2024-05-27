@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>清除浮动</title>
+        <style>
+            /* 父元素设置 overflow:hidden */
+            #container {
+                overflow: hidden;
+                width: 70%;
+                height: 700px;
+                margin: 50px auto;
+                background-color: lightblue;
+            }
+            /* 子元素设置 float:left */
+            #container div {
+                float: left;
+                width: 200px;
+                height: 100px;
+                border: 1px solid black;
+            }
+            /* 清除浮动 */
+            #container:after {
+                content: "";
+                display: block;
+                clear: both;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            <div>div12</div>
+            <div>div23</div>
+            <div>div3</div>
+        </div>
+    </head>
+</html>

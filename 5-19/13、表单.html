@@ -1,0 +1,49 @@
+<!DOCTYPE html><!-- 声明为 HTML5 文档--><!-- 声明为 HTML5 文档-->
+<html ><!-- 页面的根元素-->
+<header>
+    <meta charset="utf-8"/><!-- 定义网页编码格式-->
+    <title>表单测试</title><!--WBE页面的标题-->
+</header>
+<body>
+    <form action="">
+        <!--text文本收入 password密码输入 maxlength="4"最多可以输入的字符 placeholder="提示信息"-->
+        姓名： <input type="text" maxlength="4" placeholder="请输入姓名">
+        <br>
+        密码： <input type="password" maxlength="4">
+        <br>
+        <!--radio 同一个name下的单项选择  -->
+        <!-- checked 默认选择 -->
+        男 <input type="radio" name="abc123" checked="checked">
+        女 <input type="radio" name="abc123">
+        <br>
+        测试1 <input type="radio" name="abc1">
+        测试2 <input type="radio" name="abc1" checked="checked">
+        测试3 <input type="radio" name="abc1">
+    
+        <!-- type="checkbox"复选框 -->
+        <br>
+        选择兴趣爱好：篮球<input type="checkbox" value="1">
+        乒乓球<input type="checkbox" value="2">
+        <!-- 选择羽毛球就选中id1事件 -->
+        <label for="id1">羽毛球</label><input type="checkbox" id="id1" value="3" >
+        足球<input type="checkbox" value="4">
+        排球<input type="checkbox" value="5">
+        保龄球<input type="checkbox" value="6">
+        网球<input type="checkbox" value="7">
+    
+        <!-- 提交按键 -->
+        <br>
+        <input type="submit" value="提交">
+        <br>
+        <button>提交2</button>
+        <input type="reset" value="重置">
+
+        <br><br><br>
+
+        测试数字输入:<input type="number" min="3" max="180">
+        <br>
+        测试范围输入:<input type="range" min="3" max="180">
+        
+    </form>
+</body>
+</html>

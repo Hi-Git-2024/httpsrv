@@ -1,0 +1,88 @@
+初始化git仓库
+git init
+
+查看更新
+git status
+
+提交到缓存区
+git add .
+
+提交到仓库
+git commit -m '提示解释'
+
+从远程仓库克隆 远程的地址（git@github.com:Hi-Git-2024/html.git）
+git clone git@github.com:Hi-Git-2024/html.git
+
+查看历史版本
+git log
+
+查看历史版本
+git reflog
+
+返回最新后退版本，后面的数字填写多少就退回多少版本
+git reset --hard HEAD~1
+
+返回指定版本（填写版本号）
+git reset --hard 版本号
+
+
+查看ssh密钥
+$ ls -al ~/.ssh
+
+创建ssh密钥
+ssh-keygen -t rsa -C "xxx"
+
+查看公钥是否创建
+ssh -T git@github.com
+
+
+在命令行上创建新的存储库
+echo "# html" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+
+让本地仓库与远程仓库关联
+git remote add origin git@github.com:Hi-Git-2024/html.git
+
+提交本地仓库到远程仓库
+git push -u origin master
+
+从现在起，只要本地作了提交，就可以通过命令
+git push origin master
+
+
+
+从命令行推送现有存储库
+git remote add origin git@github.com:Hi-Git-2024/html.git
+git branch -M main
+git push -u origin main
+
+
+
+
+------------------------------
+查看当前分支
+git branch
+
+查看分支状态
+git log --graph
+
+
+创建分支 dev：分支名
+git branch dev
+
+切换分支 dev：分支名  master：代表主分支
+git checkout dev
+
+
+合并分支 将dev分支合并到主分支
+git merge dev
+
+删除分支
+git branch -d dev
+
+
+
+------------------------------

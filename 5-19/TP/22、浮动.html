@@ -1,0 +1,50 @@
+<!DOCTYPE html><!-- 声明为 HTML5 文档--><!-- 声明为 HTML5 文档-->
+<html ><!-- 页面的根元素-->
+<header>
+    <meta charset="utf-8"/><!-- 定义网页编码格式-->
+    <title>版心</title><!--WBE页面的标题-->
+      
+    <style>
+        *{
+            /*清除外内边距*/
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            /*box是a与b的父级，相当于消除了浮动*/
+            width: 400px;
+            height: 200px;
+        }
+        .a,.b{
+            width: 200px;
+            height: 200px;
+        }
+        .a{
+            background-color: blueviolet;
+            /*添加浮动*/
+            float: left;
+        }
+        .b{
+            background-color: rgb(27, 188, 206);
+            /*添加左浮动*/
+            float: left;
+        }
+        .c{
+            width: 400px;
+            height: 400px;
+            background-color: rgb(132, 225, 27);
+            /*添加左浮动*/
+            float: left; 
+        }
+
+    </style>
+</header>
+<body> 
+    <!-- box是a与b的父级，相当于消除了浮动 -->
+    <div class="box">
+        <div class="a"></div>
+        <div class="b"></div>
+    </div>
+    <div class="c"></div>
+</body>
+</html>

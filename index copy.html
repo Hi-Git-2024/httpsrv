@@ -1,0 +1,79 @@
+<!DOCTYPE html><!-- 声明为 HTML5 文档--><!-- 声明为 HTML5 文档-->
+<html><!-- 页面的根元素-->
+    <header>
+        <meta charset="utf-8"/><!-- 定义网页编码格式-->
+        <title>测试</title><!--WBE页面的标题789000-->
+        <!-- fetch api-->
+        <script type="text/javascript">
+            function ledA(key)
+            {
+                fetch("/ledA/" + key)
+            }
+            function ledB(key)
+            {
+                fetch("/ledB/" + key)
+            }
+            function LED4_1()
+            {
+                fetch("/ledA/" + document.getElementById("LED4_1").value)
+            }
+            function LED5_1()
+            {
+                fetch("/ledB/" + document.getElementById("LED5_1").value)
+            }
+			function LED4_5()
+            {
+                fetch("/ledA/" + document.getElementById("LED4").value)
+				fetch("/ledB/" + document.getElementById("LED5").value)
+            }
+        </script>
+        <!--函数LED4_5()运行的是：将id=LED4/LED5的属性的value值发送给服务器端口-->
+
+    </header>
+    <body>
+        <h2>点击按钮, led灯会亮起或熄灭</h2>
+        <div>
+            <button onclick="ledA(1)">D4亮</button><!--鼠标单击触发函数ledA(key)-->
+            <button onclick="ledB(1)">D5亮</button>
+            <button onclick="ledB(2)">都亮</button>
+        </div>
+        <div>
+            <button onclick="ledA(0)">D4灭</button>
+            <button onclick="ledB(0)">D5灭</button>
+            <button onclick="ledB(3)">都灭</button>
+        </div>
+        <br><br><!-- 两次换行-->
+        <div>
+            <h1>参数配置参数</h1>
+        </div>
+        <div>
+            LED4: <input type="text" id="LED4_1" value="1"> <!--输入框的初始值为1-->
+            LED5: <input type="text" id="LED5_1" value="1">
+            <button onclick="LED4_1()">点灯测试</button><!--鼠标单击触发函数copyText()-->
+            <button onclick="LED5_1()">点灯测试</button><!--鼠标单击触发函数copyText1()-->
+        </div>
+		<br><br><!-- 两次换行-->
+		<div>
+            <h1>下拉框测试</h1>
+        </div>
+		<div>
+		<b>LED4:</b>
+			<select id="LED4">
+                <option value="1" >开</option>
+                <option value="0" >关</option>
+			</select>
+
+			LED5:<select id="LED5">
+                <option value="1" >开</option>
+                <option value="0" >关</option>
+			</select>
+			<button onclick="LED4_5()">点灯测试</button><!--鼠标单击触发函数LED4_5()-->
+        </div>
+        <br><br><!-- 两次换行-->
+		<div>
+            <h1>服务器测试</h1>
+            <button>修改内容</button>
+
+        </div>
+    </body>
+</html>

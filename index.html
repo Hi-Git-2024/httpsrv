@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>菜鸟教程(runoob.com)</title>
+<!-- <script src="my_jquery_functions.js"></script> -->
+<!--Staticfile CDN-->
+<!-- <script src="https://cdn.staticfile.net/jquery/1.10.2/jquery.min.js"></script> -->
+<script src="https://cdn.staticfile.net/Chart.js/3.9.1/chart.js"></script>
+<!--百度 CDN-->
+<script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<!--又拍云 CDN:-->
+<!-- <script src="https://upcdn.b0.upaiyun.com/libs/jquery/jquery-2.0.2.min.js"></script> -->
+<!--新浪 CDN-->
+<!-- <script src="https://lib.sinaapp.com/js/jquery/2.0.2/jquery-2.0.2.min.js"></script> -->
+<!--Google CDN    国外用户-->
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> -->
+<!-- <script>
+$(document).ready(function(){
+	$("button").click(function(){
+		$.ajaxSetup({
+			url:"demo_ajax_load.txt",
+			success:function(result){
+				// $("div").html(result);//将读取的值替换到div中
+                $("p").html(result);//将读取的值替换到p中
+			}
+		});
+		$.ajax();
+	});
+});
+</script> -->
+
+<!-- 通过指定ID按键与触发读取demo_ajax_load.txt文件，并显示在指定ID的文本框 -->
+<!-- <script>
+	$(document).ready(function(){
+		$("#LED111").click(function(){
+			$.ajaxSetup({
+				url:"demo_ajax_load.txt",
+				success:function(result){
+					// $("div").html(result);//将读取的值替换到div中
+					$("#a").html(result);//将读取的值替换到p中
+				}
+			});
+			$.ajax();
+		});
+	});
+</script> -->
+
+<link rel="stylesheet" href="demo.css">
+<!--隐藏和显示-->
+<!-- <script>
+	$(document).ready(function(){
+		$("#LED1234").click(function(){
+			//隐藏
+    		$("#a").hide(500);  			
+		});
+		$("#LED123").click(function(){
+			//显示
+    		$("#a").show(3000);  		
+		});
+	});
+</script> -->
+
+
+<script>
+	$(document).ready(function(){
+		$("#LED123").click(function(){
+			$.get("demo_ajax_load.txt",function(data,status){
+				// alert("数据: " + data + "\n状态: " + status);
+				// jQuery("#a").text(data);
+				$("#a").text(data);//将读取的值替换到p中
+			});
+		});
+	});
+</script>
+
+<script>
+	$(document).ready(function(){
+		$("button").click(function(){
+			$("#b").load("demo_ajax_load.txt");
+		});
+	});
+</script>
+<script>
+	function showCustomer(str)
+	{
+	  var xmlhttp;    
+	  if (str=="")
+	  {
+		document.getElementById("txtHint").innerHTML="";
+		return;
+	  }
+	  if (window.XMLHttpRequest)
+	  {
+		// IE7+, Firefox, Chrome, Opera, Safari 浏览器执行代码
+		xmlhttp=new XMLHttpRequest();
+	  }
+	  else
+	  {
+		// IE6, IE5 浏览器执行代码
+		xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	  }
+	  xmlhttp.onreadystatechange=function()
+	  {
+		if (xmlhttp.readyState==4 && xmlhttp.status==200)
+		{
+		  document.getElementById("txtHint").innerHTML=xmlhttp.responseText;
+		}
+	  }
+	  xmlhttp.open("GET","getcustomer.php?q="+str,true);
+	  xmlhttp.send();
+	}
+</script>
+<header>
+	<meta charset="utf-8"/><!-- 定义网页编码格式-->
+	<title>测试</title><!--WBE页面的标题789000-->
+	<!-- fetch api-->
+	<script type="text/javascript">
+		function ledA(key)
+		{
+			fetch("/ledA/" + key)
+		}
+		function ledB(key)
+		{
+			fetch("/ledB/" + key)
+		}
+		function LED4_1()
+		{
+			fetch("/ledA/" + document.getElementById("LED4_1").value)
+		}
+		function LED5_1()
+		{
+			// fetch("/ledB/" + document.getElementById("LED5_1").value)
+			//以下写发的效果与上面一样
+			fetch("/ledB/" + $("#LED5_1").val())
+		}
+		function LED4_5()
+		{
+			fetch("/ledA/" + document.getElementById("LED4").value)
+			fetch("/ledB/" + document.getElementById("LED5").value)
+		}
+	</script>
+	<!--函数LED4_5()运行的是：将id=LED4/LED5的属性的value值发送给服务器端口-->
+
+</header>
+</head>
+<body>
+	<h2>点击按钮, led灯会亮起或熄灭111</h2>
+	<div>
+		<button onclick="ledA(1)" id="LED111" >D4亮</button><!--鼠标单击触发函数ledA(key)-->
+		<button onclick="ledB(1)" id="LED1234">D5亮</button>
+		<button onclick="ledB(2)" id="LED123">都亮</button>
+	</div>
+	<div>
+		<button onclick="ledA(0)">D4灭</button>
+		<button onclick="ledB(0)">D5灭</button>
+		<button onclick="ledB(3)">都灭</button>
+	</div>
+	<br><br><!-- 两次换行-->
+	<div>
+		<h1>参数配置参数</h1>
+	</div>
+	<div>
+		LED4: <input type="text" id="LED4_1" value="1"> <!--输入框的初始值为1-->
+		LED5: <input type="text" id="LED5_1" value="1">
+		<button onclick="LED4_1()">点灯测试</button><!--鼠标单击触发函数copyText()-->
+		<button onclick="LED5_1()">点灯测试</button><!--鼠标单击触发函数copyText1()-->
+	</div>
+	<br><br><!-- 两次换行-->
+	<div>
+		<h1 id="LED000">下拉框测试</h1>
+	</div>
+	<div>
+	<b>LED4:</b>
+		<select id="LED4">
+			<option value="1" >开</option>
+			<option value="0" >关</option>
+		</select>
+
+		LED5:<select id="LED5">
+			<option value="1" >开</option>
+			<option value="0" >关</option>
+		</select>
+		<button onclick="LED4_5()">点灯测试</button><!--鼠标单击触发函数LED4_5()-->
+	</div>
+	<br><br><!-- 两次换行-->
+	<div>
+		<h1>服务器测试</h1>
+		<button>修改内容</button>
+
+	</div>
+	<div><h2>使用 AJAX 修改文本内容</h2></div>
+	<button>修改内容</button>
+	<p>我是P00</p>
+	<div id="a">我是A</div>
+	<div id="b">我是B </div>
+
+	
+<form action=""> 
+	<select name="customers" onchange="showCustomer(this.value)" style="font-family:Verdana, Arial, Helvetica, sans-serif;">
+	<option value="APPLE">Apple Computer, Inc.</option>
+	<option value="BAIDU ">BAIDU, Inc</option>
+	<option value="Canon">Canon USA, Inc.</option>
+	<option value="Google">Google, Inc.</option>
+	<option value="Nokia">Nokia Corporation</option>
+	<option value="SONY">Sony Corporation of America</option>
+	</select>
+	</form>
+	<br>
+	<div id="txtHint">客户信息将显示在这...</div>
+
+</body>
+</html>
