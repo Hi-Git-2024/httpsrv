@@ -1,0 +1,9 @@
+<h2>jQuery AJAX 是个非常棒的功能！</h2> 
+<p id="About">关于</p>
+<p id="AccentColor">Accent Color</p>
+<p id="AlwaysOnTop">窗口置顶</p>
+<p id="Audio">音频</p>
+
+ABC
+DEF
+XYZ
