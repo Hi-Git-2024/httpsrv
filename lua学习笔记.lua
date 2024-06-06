@@ -83,8 +83,8 @@ A and B  --逻辑与操作符。 若 A 为 false，则返回 A，否则返回 B
 A or B   --逻辑或操作符。 若 A 为 true， 则返回 A，否则返回 B
 not A    --逻辑非操作符。与逻辑运算结果相反，如果条件为 true，逻辑非为 false
 
-
-
+true
+false
 
 --分支判断
 if 条件 then
