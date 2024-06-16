@@ -1,7 +1,11 @@
 -- LuaTools需要PROJECT和VERSION这两个信息
 PROJECT = "wifidemo"
 VERSION = "1.0.0"
+--[[ 
+说明：
+该程序为测试历程，实现了客户端与MCU的双向通信，
 
+]]
 -- 引入必要的库文件(lua编写), 内部库不需要require
 sys = require("sys")
 require("sysplus")
@@ -45,7 +49,10 @@ sys.taskInit(function()
         print("服务器接收测试","json.encode(headers)=",json.encode(headers))
         print("服务器接收测试","headers=",headers)
         print("服务器接收测试","body=",body)
-
+        local data1= string.sub(body, 1, 8)
+        local data2= string.sub(body, 9, #body)
+        print("服务器接收测试","data1=",data1)
+        print("服务器接收测试","data2=",data2)
         if uri == "/ledA/1" then
             LEDA(1)
             return 200, {}, "ok"
@@ -72,7 +79,8 @@ sys.taskInit(function()
         if uri == "/write.php" then
             LEDB(1)
             LEDA(1)
-            return 200, {}, "ok"
+            --MCU发送数据给客户端...................................---------------
+            return 200, {}, data2
         end
         return 404, {}, "7Not Found" .. uri
     end)

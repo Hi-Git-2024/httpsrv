@@ -1,0 +1,53 @@
+<!DOCTYPE html><!-- 声明为 HTML5 文档--><!-- 声明为 HTML5 文档-->
+<html ><!-- 页面的根元素-->
+<header>
+    <meta charset="utf-8"/><!-- 定义网页编码格式-->
+    <title>绝对定位</title><!--WBE页面的标题-->
+      
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            position: absolute;
+        }
+        .a{
+            width: 500px;
+            height: 500px;
+            background-color: aquamarine;
+        }
+        .b{
+            width: 400px;
+            height: 400px;
+            background-color: rgb(41, 149, 193);
+        }
+        .c{
+            width: 300px;
+            height: 300px;
+            background-color: aquamarine;
+            z-index: 1;
+        }
+        .d{
+            width: 200px;
+            height: 200px;
+            background-color: rgb(17, 127, 217);
+        }
+        .e{
+            width: 100px;
+            height: 100px;
+            background-color: rgb(24, 197, 9);
+            /*z-index优先显示，数值越大越优先*/
+            z-index: 5;
+        }
+
+    </style>
+</header>
+<body>
+    <div class="a"></div>
+    <div class="b"></div>
+    <div class="c"></div>
+    <div class="d"></div>
+    <div class="e"></div>
+</body>
+</html>

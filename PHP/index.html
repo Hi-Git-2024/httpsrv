@@ -4,6 +4,8 @@
 <meta charset="utf-8">
 <script src="https://cdn.staticfile.net/jquery/1.10.2/jquery.min.js">
 </script>
+
+<!-- 使用 jQuery AJAX 加载外部文本 -->
 <script>
 $(document).ready(function(){
   $("#button0").click(function(){
@@ -12,29 +14,32 @@ $(document).ready(function(){
 });
 </script>
 
+<!-- 使用 jQuery AJAX 写入与读取 数据 -->
 <script>
-    $(document).ready(function(){
-      $("#writeButton").click(function(){
-        var content =$('#contentInput').val();// 获取文本翰入框中的内容
-        $("#p3").text(content);
-        $.ajax({
-            url :'write.php',// 服务器端处理写入的
-            method:'POST',
-            data:{content:content},
-            success: function(){
-            //写入成功后的操作
-            console.log('写入TXT文件成功');
-            $("#p2").text('写入TXT文件成功');
-            },
-            error: function(){
-            //写入失败后的操作
-            console.log('写入TXT文件失败');
-            $("#p2").text('写入TXT文件失败');
-            }
-        })
-      });
+  $(document).ready(function(){
+    $("#writeButton").click(function(){
+      var content =$('#contentInput').val();// 获取文本翰入框中的内容
+      $("#p3").text(content);
+      $.ajax({
+          url :'write.php',// 服务器端处理写入的
+          method:'POST',
+          data:{content:content},
+          success: function(data){
+          //写入成功后的操作
+          console.log('写入TXT文件成功');
+          console.log(data);
+          $("#p2").text(data);
+          },
+          error: function(jqXHR, textStatus, errorThrown){
+          //写入失败后的操作
+          console.log('Error: ' + textStatus);
+          console.log('写入TXT文件失败');
+          $("#p2").text('写入TXT文件失败');
+          }
+      })
     });
-    </script>
+  });
+</script>
 
 </head>
 <body>

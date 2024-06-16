@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>菜鸟教程(runoob.com)</title>
+</head>
+<body>
+
+<!-- <form action="tryjs_submitpage.htm" onsubmit="return myFunction()"> -->
+姓名 (最大 10 个字符): <input type="text" id="fname" size="20"><br>
+年龄 (从 1 到 100): <input type="text" id="age" size="20"><br>
+E-mail: <input type="text" id="email" size="20"><br>
+<br>
+<input type="submit" value="提交"> 
+</form>
+<script>
+function myFunction() {
+    var at = document.getElementById("email").value.indexOf("@");
+    var age = document.getElementById("age").value;
+    var fname = document.getElementById("fname").value;
+    submitOK = "true";
+    if (fname.length>10) {
+        alert("姓名不能超过 10 个字符");
+        submitOK = "false";
+    } 
+    if (isNaN(age)||age<1||age>100) {
+        alert("年龄范围为 1 到 100");
+        submitOK = "false";
+    }
+    if (at==-1) {
+        alert("不合法的 e-mail!");
+        submitOK = "false";
+    }
+    if (submitOK=="false") {
+        return false;
+    }
+}
+</script>
+
+</body>
+</html>

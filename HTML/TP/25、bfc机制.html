@@ -1,0 +1,41 @@
+<!DOCTYPE html><!-- 声明为 HTML5 文档--><!-- 声明为 HTML5 文档-->
+<html ><!-- 页面的根元素-->
+<header>
+    <meta charset="utf-8"/><!-- 定义网页编码格式-->
+    <title>BFV机制</title><!--WBE页面的标题-->
+      
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 400px;
+            height: 400px;
+            background-color: antiquewhite;
+        }
+        .out{
+            width: 300px;
+            height: 300px;
+            background-color: rebeccapurple;
+            /* BFV机制
+            格式化元素
+            元素互补影响，方便元素调整*/
+            overflow: hidden;
+        }
+        .in{
+            width: 100px;
+            height: 100px;
+            background-color: brown;
+            margin-top: 30px;
+
+        }
+    </style>
+</header>
+<body>
+    <div class="box"></div> 
+    <div class="out">
+        <div class="in"></div>
+    </div>
+</body>
+</html>

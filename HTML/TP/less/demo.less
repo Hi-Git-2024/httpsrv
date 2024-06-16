@@ -1,0 +1,177 @@
+//这个注释不会编译到.css中
+/*这个注释可以编译到.css中   注释ctrl+k+c*/
+
+//ul{
+//    li{
+//        a{
+//            color: rgb(25, 242, 29);
+//        }
+//    }
+//}
+//a{
+//    color: aqua;
+//}
+//..................................................
+//使用变量设置div
+//@变量名:值
+//@width: 400px;
+// @height:@width+100px;
+// @style: dashed;
+// @color: blue;
+
+// div{
+//     width: @width;
+//     height: @height;
+//     border: 2px @style @color;
+// }
+
+//---------------------------------------------
+//测试提取相同属性
+// .border{
+//     border: 1px solid red;
+    
+// }
+// ul{
+//     .border;
+// }
+// a{
+//     .border;
+// }
+// div{
+//     .border;
+//     width: 500px;
+//     height: 300px;
+// }
+//.....................................................
+//测试提取相同属性，以函数的形式
+// .border(@color,@widh_){
+//     border: @widh_ solid @color;
+    
+// }
+// ul{
+//     .border(red,3px);
+// }
+// a{
+//     .border(rgb(124, 243, 12),6px);
+// }
+// div{
+//     .border(rgb(188, 8, 158),10px);
+//     width: 500px;
+//     height: 300px;
+// }
+
+//---------------------------------------------------
+//设置默认值,默认值的元素放后面
+// .border(@widh_:1px,@color:rgb(89, 127, 210)){
+//     border: @widh_ solid @color;
+    
+// }
+// ul{
+//     .border();
+// }
+// ul{
+//     li{
+//         a{
+//             .border(3px,rgb(149, 255, 0));
+//         }
+//     }
+// }
+// a{
+//     .border(6px,);
+// }
+// div{
+//     .border();
+//     width: 500px;
+//     height: 300px;
+// }
+//-------------------------------------------------------------
+//传统样式
+// div{
+//     width: 0;
+//     height: 0;
+//     border-style: solid;
+//     border-width: 30px;
+//     border-color: green  transparent transparent transparent;
+// }
+
+//匹配模式
+//使用less
+// .Gn(top,@width,@color){
+//     border-width:@width ;
+//     border-style: solid;
+//     border-color: transparent transparent @color transparent;
+// }
+
+// .Gn(right,@width,@color){
+//     border-width:@width ;
+//     border-style: solid;
+//     border-color: transparent transparent transparent @color;
+// }
+
+// .Gn(bottom,@width,@color){
+//     border-width:@width ;
+//     border-style: solid;
+//     border-color: @color transparent  transparent transparent;
+// }
+
+// .Gn(left,@width,@color){
+//     border-width:@width ;
+//     border-style: solid;
+//     border-color: transparent @color transparent transparent;
+// }
+
+
+//@_代表调用该函数就调用里面的内容
+// .Gn(@_,@width,@color){
+//     width: 0;
+//     height: 0;
+// }
+
+
+// div{
+//     .Gn(bottom, 300px, red)
+// }
+//---------------------------------------------------------------
+//运算可以+ - * /
+// @width : 300px;
+// div{
+//     width: @width+100;
+//     height: 300px;
+//     background-color:pink;
+// }
+
+//-----------------------------------------------------
+//嵌套规则
+//&：代表上一级选择器
+
+//传统样式
+// ul{
+//     li{
+//         a{
+//             color: rgb(16, 145, 104);
+//         }
+//         a:hover{
+//             font-size: 35px;
+//         }
+
+//     }
+// }
+//&：代表上一级选择器
+// ul{
+//     li{
+//         a{
+//             color: rgb(16, 145, 104);
+//             //当前代表选中了a
+//             &:hover{
+//                 font-size: 50px;
+//             }
+//         }
+//     }
+// }
+
+//子代选择器
+ul{
+    &>a{
+        color: black;
+    }
+}
