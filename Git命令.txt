@@ -12,6 +12,7 @@ git commit -m '提示解释'
 
 从远程仓库克隆 远程的地址（git@github.com:Hi-Git-2024/html.git）
 git clone git@github.com:Hi-Git-2024/html.git
+git clone git@github.com:Hi-Git-2024/2411Electricity_metering.git
 
 查看历史版本
 git log
